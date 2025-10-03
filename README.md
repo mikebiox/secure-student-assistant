@@ -1,2 +1,2 @@
-# Vulnerable AI Student Assitant
-A vulnerable AI app for testing purposes
+# Secure AI Student Assitant
+A (more) secure AI app for testing purposes
