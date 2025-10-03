@@ -3,11 +3,12 @@ import google.generativeai as genai
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, constr
+from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 import database
 import json
 import html
+from typing import Annotated
 
 load_dotenv()
 
@@ -39,7 +40,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class ChatRequest(BaseModel):
-    message: constr(strip_whitespace=True, min_length=1, max_length=500)
+    message: Annotated[str, Field(strip_whitespace=True, min_length=1, max_length=500)]
 
 def get_formatted_student_data():
     """
