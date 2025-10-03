@@ -26,7 +26,7 @@ chatForm.addEventListener('submit', async (e) => {
 function appendMessage(message, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
-    messageElement.innerHTML = message;
+    messageElement.textContent = message;
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
